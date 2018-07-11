@@ -17,7 +17,7 @@ const DisplayLinks = props => {
 							Home
 						</Link>
 					</li>
-					<li>
+					<li className="nav-item">
 						<Link to="#" className="nav-link" onClick={props._logout}>
 							Logout
 						</Link>
@@ -113,7 +113,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>This is the sweet app</h1>
+				<h1>Trivia Game</h1>
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />

@@ -37,7 +37,7 @@ class LoginForm extends Component {
 		} else {
 			return (
 				<div className="LoginForm">
-					<h1>Login form</h1>
+					<h1>Log in to Play!</h1>
 					<form>
 						<label htmlFor="username">Username: </label>
 						<input
