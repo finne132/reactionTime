@@ -1,6 +1,4 @@
 import React from 'react'
-// TODO - add proptypes
-
 const Home = props => {
 	if (props.user) {
 		return (
@@ -22,5 +20,4 @@ const Home = props => {
 		)
 	}
 }
-
 export default Home
