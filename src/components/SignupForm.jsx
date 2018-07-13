@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class SignupForm extends Component {
 	constructor() {
@@ -45,6 +45,7 @@ class SignupForm extends Component {
 		}
 		return (
 			<div className="SignupForm">
+			<form>
 				<h1>Account Registration</h1>
 				<label htmlFor="username">Username: </label>
 				<input
@@ -68,6 +69,7 @@ class SignupForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<button onClick={this.handleSubmit}>Register</button>
+				</form>
 			</div>
 		)
 	}

@@ -54,11 +54,12 @@ class LoginForm extends Component {
 							onChange={this.handleChange}
 						/>
 						<button onClick={this.handleSubmit}>Login</button>
-					</form>
-					<a href="/auth/google">
+						<a href="/auth/google">
 						{/* <GoogleButton /> */}
 						<img src={googleButton} alt="sign into Google Button" />
 					</a>
+					</form>
+				
 				</div>
 			)
 		}
