@@ -1,5 +1,6 @@
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('../db/models/user')
+require('dotenv').config()
 
 const strategy = new GoogleStrategy(
 	{
