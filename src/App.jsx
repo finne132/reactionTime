@@ -112,7 +112,9 @@ class App extends Component {
 
 	render() {
 		return (
+			<div class="container">
 			<div className="App">
+				
 				<h1>Trivia Game</h1>
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
@@ -124,7 +126,10 @@ class App extends Component {
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
+			</div>
 		)
 	}
+
+	
 }
 export default App

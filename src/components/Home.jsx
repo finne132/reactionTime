@@ -3,14 +3,33 @@ const Home = props => {
 	if (props.user) {
 		return (
 			<div className="Home">
-			<p>Welcome to the home page! This is the area where the user will see protected content after they have logged in</p>
-				<p>Current User's Login Data:</p>
-				<code>
-					{JSON.stringify(props)}
-				</code>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1">
+							<p>Welcome to APP NAME</p>
+						</div>
+					<div class="row">
+						<div class="col-md-1">
+							<p>Current User's Login Data:</p>
+							<code>
+							{JSON.stringify(props)}
+							</code>
+						</div>
+					</div>
+
+					<div class="btn-group">
+  <button type="button" class="btn btn-primary">New Game</button>
+  <button type="button" class="btn btn-primary">Join Game</button>
+  <button type="button" class="btn btn-primary">Log Out</button>
+</div>
+						
+	
+				</div>
+			</div>
 			</div>
 			// rest of the home page goes here 
 		)
+
 	} else {
 		return (
 			<div className="Home">
