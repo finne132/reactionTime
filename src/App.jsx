@@ -6,6 +6,7 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import Trivia from './components/Trivia'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -124,6 +125,7 @@ class App extends Component {
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
 				<Route exact path="/login" render={() => <LoginForm _login={this._login} _googleSignin={this._googleSignin}/>}/>
 				<Route exact path="/signup" component={SignupForm} />
+				<Route exact path="/trivia" render={() => <Trivia user={this.state.user} />} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 			</div>
