@@ -10,8 +10,11 @@ class Buttons extends React.Component {
 
         let buttons = this.props.possibleAnswers.map((answer, index) => {
             return (
-                <button key={'answer-' + index} onClick={() => this.props.handleClick(answer, this.props.correctAnswer)}>{answer}</button>
+                <div className="col-12 button">
+                <button type="button" key={'answer-' + index} onClick={() => this.props.handleClick(answer, this.props.correctAnswer)}>{answer}</button>
+                </div>
             )
+
 
         });
         return (
@@ -26,7 +29,7 @@ class Totals extends React.Component {
     }
     render() {
         return (
-            <div className="col-2 score">
+            <div className="col-3 score">
                 <div className="correct"><span>Correct:</span> {this.props.correct}</div>
                 <div className="incorrect"><span>Incorrect:</span> {this.props.incorrect}</div>
             </div>
@@ -137,18 +140,42 @@ class Trivia extends React.Component {
         this.setState({questions: questions});
     }
 
+
     componentWillMount() {
         this.fetchQuestions();
     }
     render() {
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
         return (
-            <div className="row">
-                <div className="col-2 question">
-                    {questions}
+            <div class="container">
+            <div className="row justify-content-center">
+                <div className="col-md-12">
+                    <p> TIMER </p>
                 </div>
+                <div className="col-md-12 question">
+                   <p class="text-center"> {questions} </p>
+                </div>
+            </div>
+
+            <div className="row justify-content-center">
                 <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
             </div>
+
+            <div className="row justify-content-center">
+                <div className="col-md-12 multiScores">
+                <div class="row">
+                <span>Player 1</span>
+                <span>Player 2</span>
+                </div>
+                <div class="row">
+                <span>Player 3</span>
+                <span>Player 4</span>
+                </div>
+                </div>
+            </div>
+            </div>
+            
+            
 
         )
 
