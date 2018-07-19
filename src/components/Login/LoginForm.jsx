@@ -37,7 +37,7 @@ class LoginForm extends Component {
 		} else {
 			return (
 				<div className="LoginForm">
-					<h1>Log in to Play!</h1>
+					<h1>Login to Play!</h1>
 					<form>
 						<label htmlFor="username">Username: </label>
 						<input
@@ -53,7 +53,7 @@ class LoginForm extends Component {
 							value={this.state.password}
 							onChange={this.handleChange}
 						/>
-						<button onClick={this.handleSubmit}>Login</button>
+						<button className="click" onClick={this.handleSubmit}>Login</button>
 					</form>
 				
 				</div>

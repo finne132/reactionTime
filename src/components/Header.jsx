@@ -4,7 +4,7 @@ import React from 'react'
 const Header = props => {
 	let Greeting
 	if (props.user === null) {
-		Greeting = <p>Please Log in to continue</p>
+		Greeting = <p>Please Login to continue</p>
 	} else if (props.user.firstName) {
 		Greeting = (
 			<p>
@@ -20,7 +20,7 @@ const Header = props => {
 	}
 	return (
 		<div className="Header">
-			{Greeting}
+		{Greeting}
 		</div>
 	)
 }

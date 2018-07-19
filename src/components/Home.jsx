@@ -14,7 +14,11 @@ const Home = props => {
 	} else {
 		return (
 			<div className="Home">
-				<p>You must log in to continue</p>
+			<div className="welcome">
+			<h1>Trivia Game
+			</h1>
+			</div>
+				{/* <p>You must log in to continue</p> */}
 			</div>
 		)
 	}
