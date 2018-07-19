@@ -77,7 +77,6 @@ class Trivia extends React.Component {
             incorrect: 0,
             totalQuestions: 10,
             q: 0,
-            user: props.user
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);

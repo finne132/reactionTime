@@ -41,11 +41,6 @@ const DisplayLinks = props => {
 			<nav className="navbar">
 				<ul className="nav">
 					<li className="nav-item">
-						<Link to="/" className="nav-link">
-							Home
-						</Link>
-					</li>
-					<li className="nav-item">
 						<Link to="/login" className="nav-link">
 							Login
 						</Link>
@@ -81,6 +76,8 @@ class App extends Component {
 					user: response.data.user
 				})
 			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
 				this.setState({
 					loggedIn: false,
 					user: null
