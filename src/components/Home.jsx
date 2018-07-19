@@ -6,7 +6,7 @@ const Home = props => {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-1">
-							<p>Welcome to APP NAME</p>
+							<p>Welcome to Trivia Game</p>
 						</div>
 					<div class="row">
 						<div class="col-md-1">
