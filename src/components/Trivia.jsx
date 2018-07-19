@@ -7,11 +7,13 @@ class Buttons extends React.Component {
     }
 
     render() {
-
+        
         let buttons = this.props.possibleAnswers.map((answer, index) => {
             return (
                 <div className="col-12 button">
-                <button type="button" key={'answer-' + index} onClick={() => this.props.handleClick(answer, this.props.correctAnswer)}>{answer}</button>
+                    <div id="back"></div>
+                    <div id="front"></div>
+                    <button type="button" key={'answer-' + index} onClick={() => this.props.handleClick(answer, this.props.correctAnswer)}>{answer}</button>
                 </div>
             )
 
