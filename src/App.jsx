@@ -40,16 +40,12 @@ const DisplayLinks = props => {
 		return (
 			<nav className="navbar">
 				<ul className="nav">
-<<<<<<< HEAD
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
 						</Link>
 					</li>
 					<li className="nav-item btn1">
-=======
-					<li className="nav-item">
->>>>>>> 4688530be248615ed078506d9bb023f959bd7482
 						<Link to="/login" className="nav-link">
 							Login
 						</Link>
