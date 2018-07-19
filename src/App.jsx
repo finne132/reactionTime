@@ -6,6 +6,7 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import Trivia from './components/Trivia'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -22,6 +23,16 @@ const DisplayLinks = props => {
 							Logout
 						</Link>
 					</li>
+					<li className="nav-item">
+						<Link to="/trivia" className="nav-link">
+							Solo
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to="#" className="nav-link">
+							Multi
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		)
@@ -29,12 +40,16 @@ const DisplayLinks = props => {
 		return (
 			<nav className="navbar">
 				<ul className="nav">
+<<<<<<< HEAD
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
 						</Link>
 					</li>
 					<li className="nav-item btn1">
+=======
+					<li className="nav-item">
+>>>>>>> 4688530be248615ed078506d9bb023f959bd7482
 						<Link to="/login" className="nav-link">
 							Login
 						</Link>
@@ -69,6 +84,8 @@ class App extends Component {
 					user: response.data.user
 				})
 			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
 				this.setState({
 					loggedIn: false,
 					user: null
@@ -110,7 +127,9 @@ class App extends Component {
 	}
 
 	render() {
+		
 		return (
+			<div class="container">
 			<div className="App">
 			{/* LINKS to our different 'pages' */}
 			<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -118,11 +137,15 @@ class App extends Component {
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
-				<Route exact path="/login" render={() => <LoginForm _login={this._login} _googleSignin={this._googleSignin}/>}/>
+				<Route exact path="/login" render={() => <LoginForm _login={this._login}/>}/>
 				<Route exact path="/signup" component={SignupForm} />
+				<Route exact path="/trivia" render={() => <Trivia loggedIn={this.state.logggedIn} />} />
 				{/* <LoginForm _login={this._login} /> */}
+			</div>
 			</div>
 		)
 	}
+
+	
 }
 export default App
