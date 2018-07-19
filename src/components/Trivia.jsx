@@ -10,6 +10,7 @@ class Buttons extends React.Component {
         
         let buttons = this.props.possibleAnswers.map((answer, index) => {
             return (
+                
                 <div className="col-12 button">
                     <div id="back"></div>
                     <div id="front"></div>

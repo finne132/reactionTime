@@ -25,12 +25,12 @@ const DisplayLinks = props => {
 					</li>
 					<li className="nav-item">
 						<Link to="/trivia" className="nav-link">
-							Solo Game
+							Solo
 						</Link>
 					</li>
 					<li className="nav-item">
 						<Link to="#" className="nav-link">
-							Multiplayer Game
+							Multi
 						</Link>
 					</li>
 				</ul>
@@ -122,6 +122,7 @@ class App extends Component {
 	}
 
 	render() {
+		
 		return (
 			<div class="container">
 			<div className="App">
@@ -133,9 +134,9 @@ class App extends Component {
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
-				<Route exact path="/login" render={() => <LoginForm _login={this._login} _googleSignin={this._googleSignin}/>}/>
+				<Route exact path="/login" render={() => <LoginForm _login={this._login}/>}/>
 				<Route exact path="/signup" component={SignupForm} />
-				<Route exact path="/trivia" render={() => <Trivia user={this.state.user} />} />
+				<Route exact path="/trivia" render={() => <Trivia loggedIn={this.state.logggedIn} />} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 			</div>
