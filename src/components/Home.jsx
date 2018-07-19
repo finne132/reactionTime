@@ -18,9 +18,6 @@ const Home = props => {
 					</div>
 
 					<div class="btn-group">
-  <button type="button" class="btn btn-primary">New Game</button>
-  <button type="button" class="btn btn-primary">Join Game</button>
-  <button type="button" class="btn btn-primary">Log Out</button>
 </div>
 						
 	

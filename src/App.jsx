@@ -23,6 +23,16 @@ const DisplayLinks = props => {
 							Logout
 						</Link>
 					</li>
+					<li className="nav-item">
+						<Link to="/trivia" className="nav-link">
+							Solo Game
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to="#" className="nav-link">
+							Multiplayer Game
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		)
