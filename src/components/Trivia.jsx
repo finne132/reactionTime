@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 
 class Buttons extends React.Component {
     constructor(props) {
@@ -77,7 +78,11 @@ class Trivia extends React.Component {
             incorrect: 0,
             totalQuestions: 10,
             q: 0,
+<<<<<<< HEAD
             timer: 10
+=======
+            timer:15
+>>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
@@ -88,7 +93,11 @@ class Trivia extends React.Component {
             correct: 0,
             incorrect: 0,
             q: 0,
+<<<<<<< HEAD
             timer: 10,
+=======
+            timer: 15
+>>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
         });
         this.fetchQuestions();
     }
@@ -161,10 +170,30 @@ class Trivia extends React.Component {
 
 
     componentWillMount() {
-        this.fetchQuestions();
+        axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+                this.fetchQuestions();
+			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
+			}
+		})
+
     }
     render() {
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
+        axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+                
+			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
+			}
+		})
         return (
             <div class="container">
                 <div className="row justify-content-center">
@@ -193,10 +222,15 @@ class Trivia extends React.Component {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 
 
 
+=======
+            </div>
+>>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
         )
+        
 
     }
 }
