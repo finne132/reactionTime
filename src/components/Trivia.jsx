@@ -78,11 +78,7 @@ class Trivia extends React.Component {
             incorrect: 0,
             totalQuestions: 10,
             q: 0,
-<<<<<<< HEAD
             timer: 10
-=======
-            timer:15
->>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
@@ -93,11 +89,7 @@ class Trivia extends React.Component {
             correct: 0,
             incorrect: 0,
             q: 0,
-<<<<<<< HEAD
             timer: 10,
-=======
-            timer: 15
->>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
         });
         this.fetchQuestions();
     }
@@ -222,13 +214,7 @@ class Trivia extends React.Component {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-
-
-
-=======
-            </div>
->>>>>>> b5d3d3267c4e0f512f627855765097952ad1a3ed
+        
         )
         
 
