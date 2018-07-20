@@ -78,6 +78,7 @@ class Trivia extends React.Component {
             incorrect: 0,
             totalQuestions: 10,
             q: 0,
+            timer:15
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
@@ -88,6 +89,7 @@ class Trivia extends React.Component {
             correct: 0,
             incorrect: 0,
             q: 0,
+            timer: 15
         });
         this.fetchQuestions();
     }
@@ -107,6 +109,17 @@ class Trivia extends React.Component {
             this.setState({correct: correct, incorrect: incorrect});
         }
 
+    }
+
+    handleTimer(){
+        let time = this.state.timer;
+
+        // make this count down from "time" to 0
+
+        
+        // if timer is 0, add 1 to this.state.incorrect  
+        //          then, reset time to be this.state.timer 
+        //          then, call fetchQuestions again
     }
 
     fetchQuestions() {
