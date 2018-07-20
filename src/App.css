@@ -19,6 +19,7 @@ nav{
 	background-image: url("https://www.transparenttextures.com/patterns/dimension.png");
 	width: 100%;
 	height: auto;
+	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
 }
 
 .btn1 {
@@ -306,4 +307,29 @@ body {
   animation-duration: 300s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+/* questions */
+button{
+	background: #FD4447;
+	padding: 10px;
+	border-radius: 5px;
+	font-family: 'Baloo', cursive;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: white;
+	font-size: 25px;
+	text-decoration: none;
+	vertical-align: middle;
+	margin: .5em;
+	width: 300px;
+}
+
+button:hover {
+	background: #ffaf00;
+		}
+.question{
+	font-size: 30px;
 }

@@ -7,10 +7,10 @@ class Buttons extends React.Component {
     }
 
     render() {
-        
+
         let buttons = this.props.possibleAnswers.map((answer, index) => {
             return (
-                
+
                 <div className="col-12 button">
                     <div id="back"></div>
                     <div id="front"></div>
@@ -49,10 +49,10 @@ class Question extends React.Component {
         let i = this.props.q,
             totalQuestions = this.props.totalQuestions - 1;
 
-        if(i <= totalQuestions) {
+        if (i <= totalQuestions) {
             return (
                 <div>
-                    <h1>{this.props.questions[i].question}</h1>
+                    <h1 className="question">{this.props.questions[i].question}</h1>
                     <Buttons possibleAnswers={this.props.questions[i].possibleAnswers} correctAnswer={this.props.questions[i].correct_answer} handleClick={this.props.handleClick} />
                 </div>
             )
@@ -77,16 +77,18 @@ class Trivia extends React.Component {
             incorrect: 0,
             totalQuestions: 10,
             q: 0,
+            timer: 10
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
     }
-    handleNewGame(){
+    handleNewGame() {
         this.setState({
             questions: [],
             correct: 0,
             incorrect: 0,
             q: 0,
+            timer: 10,
         });
         this.fetchQuestions();
     }
@@ -100,34 +102,49 @@ class Trivia extends React.Component {
         } else {
             incorrect = this.state.incorrect + 1;
         }
-        if(this.state.q <= totalQuestions) {
-            this.setState({correct: correct, incorrect: incorrect, q: this.state.q + 1});
+        if (this.state.q <= totalQuestions) {
+            this.setState({ correct: correct, incorrect: incorrect, q: this.state.q + 1 });
         } else {
-            this.setState({correct: correct, incorrect: incorrect});
+            this.setState({ correct: correct, incorrect: incorrect });
         }
 
     }
-
+    handleTimer() {
+        let time = this.state.timer;
+            if (time == 10) {
+               setInterval(count, 1000);
+            }
+        function count(){
+            time--;
+        }
+            // make this count down from "time" to 0
+        if (time === 0) {
+           let incorrect = this.state.incorrect + 1;
+        }
+        // then, reset time to be this.state.timer 
+        count();         
+        this.fetchQuestions();
+    }
     fetchQuestions() {
         let q = this.state.totalQuestions;
-        fetch('https://opentdb.com/api.php?amount='+ q +'&category=9&difficulty=easy&type=multiple&encode=url3986')
-        .then(results => {
-            return results.json();
-        }).then(data => {
-            this.questionLoader(data)
-        })
+        fetch('https://opentdb.com/api.php?amount=' + q + '&category=9&difficulty=easy&type=multiple&encode=url3986')
+            .then(results => {
+                return results.json();
+            }).then(data => {
+                this.questionLoader(data)
+            })
     }
     questionLoader(data) {
         let questions = [];
-        for(let i in data.results) {
+        for (let i in data.results) {
 
             let q = unescape(data.results[i].question),
                 correct_answer = unescape(data.results[i].correct_answer),
                 possibleAnswers = [correct_answer,
-                                    unescape(data.results[i].incorrect_answers[0]),
-                                    unescape(data.results[i].incorrect_answers[1]),
-                                    unescape(data.results[i].incorrect_answers[2])
-                                ];
+                    unescape(data.results[i].incorrect_answers[0]),
+                    unescape(data.results[i].incorrect_answers[1]),
+                    unescape(data.results[i].incorrect_answers[2])
+                ];
             // randomize the possible answers array
             possibleAnswers = possibleAnswers.sort(() => {
                 return 0.5 - Math.random()
@@ -139,7 +156,7 @@ class Trivia extends React.Component {
                 'correct_answer': correct_answer
             });
         }
-        this.setState({questions: questions});
+        this.setState({ questions: questions });
     }
 
 
@@ -150,38 +167,38 @@ class Trivia extends React.Component {
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
         return (
             <div class="container">
-            <div className="row justify-content-center">
-                <div className="col-md-12">
-                    <p> TIMER </p>
+                <div className="row justify-content-center">
+                    <div className="col-md-12">
+                        <p>{this.state.timer}</p>
+                    </div>
+                    <div className="col-md-12 question">
+                        <p class="text-center"> {questions} </p>
+                    </div>
                 </div>
-                <div className="col-md-12 question">
-                   <p class="text-center"> {questions} </p>
+
+                <div className="row justify-content-center">
+                    <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
+                </div>
+
+                <div className="row justify-content-center">
+                    <div className="col-md-12 multiScores">
+                        <div class="row">
+                            <span>Player 1</span>
+                            <span>Player 2</span>
+                        </div>
+                        <div class="row">
+                            <span>Player 3</span>
+                            <span>Player 4</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="row justify-content-center">
-                <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
-            </div>
 
-            <div className="row justify-content-center">
-                <div className="col-md-12 multiScores">
-                <div class="row">
-                <span>Player 1</span>
-                <span>Player 2</span>
-                </div>
-                <div class="row">
-                <span>Player 3</span>
-                <span>Player 4</span>
-                </div>
-                </div>
-            </div>
-            </div>
-            
-            
 
         )
 
-}
+    }
 }
 
 export default Trivia
