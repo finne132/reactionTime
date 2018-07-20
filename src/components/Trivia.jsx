@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 
 class Buttons extends React.Component {
     constructor(props) {
@@ -144,10 +145,30 @@ class Trivia extends React.Component {
 
 
     componentWillMount() {
-        this.fetchQuestions();
+        axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+                this.fetchQuestions();
+			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
+			}
+		})
+
     }
     render() {
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
+        axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+                
+			} else {
+				console.log("there is not a logged in user, redirecting to the home page")
+				// put the redirect here
+			}
+		})
         return (
             <div class="container">
             <div className="row justify-content-center">
@@ -176,10 +197,8 @@ class Trivia extends React.Component {
                 </div>
             </div>
             </div>
-            
-            
-
         )
+        
 
 }
 }
