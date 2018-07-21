@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
 import Trivia from './components/Trivia'
+import socketIOClient from 'socket.io-client'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -65,11 +66,27 @@ class App extends Component {
 		super()
 		this.state = {
 			loggedIn: false,
-			user: null
+			user: null,
+			endpoint: "http://localhost:8080"
 		}
 		this._logout = this._logout.bind(this)
 		this._login = this._login.bind(this)
 	}
+
+
+	// method for emitting socket.io events
+
+	send = () => {
+		const socket = socketIOClient(this.state.endpoint)
+		
+		// this emits an event to the socket (your server) with an argument of 'red'
+		// you can make the argument any color you would like, or any kind of data you want to send.
+		
+		socket.emit('change color', 'red') 
+    // socket.emit('change color', 'red', 'yellow') | you can have multiple arguments
+	  }
+
+
 	componentDidMount() {
 		axios.get('/auth/user').then(response => {
 			console.log(response.data)
@@ -123,6 +140,12 @@ class App extends Component {
 	}
 
 	render() {
+
+		const socket = socketIOClient(this.state.endpoint)
+		socket.on('change color', (color) => {
+			// setting the color of our button
+			document.body.style.backgroundColor = color
+		  })
 		
 		return (
 			<div class="container">
