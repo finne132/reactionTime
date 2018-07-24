@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios'
+import socketIOClient from "socket.io-client";
+
 
 class Buttons extends React.Component {
     constructor(props) {
@@ -79,12 +81,21 @@ class Trivia extends React.Component {
             totalQuestions: 10,
             q: 0,
             timer: null,
-            counter: 15
+            counter: 15,
+            endpoint: "http://localhost:8080"
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
         this.tick = this.tick.bind(this);
+        this.send = this.send.bind(this);
     }
+
+    send = () => {
+        const socket = socketIOClient(this.state.endpoint);
+        socket.emit('message', "you're an asshole!")
+        console.log("asshole button clicked, emitted")
+      }
+
     handleNewGame() {
         this.setState({
             questions: [],
@@ -212,6 +223,11 @@ class Trivia extends React.Component {
                 </div>
 
                 <div className="row justify-content-center">
+                    <li className="nav-item btn1">
+                        <form action="">
+                            <input id="m" autocomplete="off" /><button onclick={this.send()}>Send</button>
+                        </form>
+                    </li>
                 </div>
             </div>
         
