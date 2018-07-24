@@ -33,7 +33,7 @@ class Totals extends React.Component {
     }
     render() {
         return (
-            <div className="col-3 score">
+            <div className="score">
                 <div className="correct"><span>Correct:</span> {this.props.correct}</div>
                 <div className="incorrect"><span>Incorrect:</span> {this.props.incorrect}</div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Link } from 'react-router-dom'
 const Home = props => {
 	if (props.user) {
 		return (
@@ -8,23 +9,34 @@ const Home = props => {
 						<div class="col-md-1">
 							<p>Welcome to Trivia Game</p>
 						</div>
-					<div class="row">
-						<div class="col-md-1">
+						<div class="row">
+							{/* <div class="col-md-1">
 							<p>Current User's Login Data:</p>
 							<code>
 							{JSON.stringify(props)}
 							</code>
+						</div> */}
+						</div>
+
+						<div class="btn-group">
 						</div>
 					</div>
-
-					<div class="btn-group">
-</div>
-						
-	
+				</div>
+				<div className="container">
+				<ul>
+					<li className="col-sm-3 chooseGame btn1">
+						<Link to="/trivia">
+							Solo
+				</Link>
+					</li>
+					<li className="col-sm-3 chooseGame btn1">
+						<Link to="/mptrivia">
+							Multi
+				</Link>
+					</li>
+				</ul>
 				</div>
 			</div>
-			</div>
-			// rest of the home page goes here 
 		)
 
 	} else {
