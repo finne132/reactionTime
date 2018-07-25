@@ -1,7 +1,7 @@
 # ChillTime Triva
 
 # Project Overview
-The app will allow users to log in. Users play a single game of of trivia with friends or random users, trivia games will be interactive including chat. Question will only be in mulitple choice format.
+The app will allow users to log in. Users play a single game of of trivia with friends or random users, trivia games will be interactive including chat. Question will only be in mulitple choice format. No schedules no waiting. Play when you want.
 
 # Presentation and Demo
 (Add new powerpoint here)Slides: https://docs.google.com/presentation/d/1L6u_S4z8b-x_6oBC4NJC7Tuah9tnnZ2NvktnGiymGVI/edit?usp=sharing
