@@ -366,6 +366,18 @@ margin: 5px;
 list-style-type: none;	
 }
 
+.chat{
+	width: 80%;
+}
+#input{
+	width: 50%;
+	float: left;
+}
+.send{
+	float: right;
+	width: 100px;
+}
+
 @media (max-width: 460px){
 	.welcome{
 		width: auto;

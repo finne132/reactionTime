@@ -223,11 +223,11 @@ class Trivia extends React.Component {
                 </div>
 
                 <div className="row justify-content-center">
-                    <li className="nav-item btn1">
+                    <p className="chat btn1">
                         <form action="">
-                            <input id="m" autocomplete="off" /><button onclick={this.send()}>Send</button>
+                            <input id="m" autocomplete="off" /><button className="send" onclick={this.send()}>Send</button>
                         </form>
-                    </li>
+                    </p>
                 </div>
             </div>
         
