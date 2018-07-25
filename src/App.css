@@ -362,8 +362,12 @@ button:hover {
 /* home page */
 .chooseGame{
 margin: 5px;
-/* display: inline-block; */
+display: flex;
+align-items: center;
+justify-content: center;
 list-style-type: none;	
+width: 50%;
+
 }
 
 .chat{
@@ -412,10 +416,10 @@ list-style-type: none;
 	}
 }
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+
 
 .chatapp{
-		background-color: #1EE494;
+		background-color: #ffaf00;
 		height: 100vh;
 		width: 100vw;
 		display: flex;
@@ -433,8 +437,7 @@ list-style-type: none;
 }
 
 .chatroom h3 {
-  font-family: 'Pacifico', cursive;
-  background-color: rgba(30, 228, 148, 0.7);
+  background-color:#ffaf00;
   color: #FFF;
   margin: 0;
   height: 40px;
@@ -487,7 +490,7 @@ list-style-type: none;
 .chatroom .input {
   height: 40px;
   width: 100%;
-  background: rgba(30, 228, 148, 0.7);
+  background:#ffaf00;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -496,7 +499,7 @@ list-style-type: none;
 .chatroom .input input[type="text"] {
   background: rgba(255, 255, 255, 0.5);
   outline: 0;
-  border: 2px solid #1EE494;
+  border: 2px solid #ffaf00;
   padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -509,7 +512,7 @@ list-style-type: none;
 
 .chatroom .input input[type="submit"] {
   background: transparent;
-  border: 1px solid #1EE494;
+  border: 1px solid ;
   height: 30px;
   width: 70px;
   font-size: 14px;
@@ -521,6 +524,6 @@ list-style-type: none;
 }
 
 .chatroom .input input[type="submit"]:hover {
-  background: #1EE494;
+  background: #ffaf00;
   color: #FFF;
 }

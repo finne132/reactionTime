@@ -23,16 +23,15 @@ const Home = props => {
 					</div>
 				</div>
 				<div className="container">
+				<div className="welcome">
+			<h1>ChillTime Trivia
+			</h1>
+			</div>
 				<ul>
 					<li className="col-sm-3 chooseGame btn1">
 						<Link to="/trivia">
-							Solo
-				</Link>
-					</li>
-					<li className="col-sm-3 chooseGame btn1">
-						<Link to="/mptrivia">
-							Multi
-				</Link>
+							Play
+						</Link>
 					</li>
 				</ul>
 				</div>
@@ -43,7 +42,7 @@ const Home = props => {
 		return (
 			<div className="Home">
 			<div className="welcome">
-			<h1>Trivia Game
+			<h1>ChillTime Trivia
 			</h1>
 			</div>
 				{/* <p>You must log in to continue</p> */}
