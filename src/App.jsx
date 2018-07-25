@@ -13,7 +13,7 @@ const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<nav className="navbar">
-				<ul className="nav">
+				<ul className="nav justify-content-center">
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
@@ -22,6 +22,11 @@ const DisplayLinks = props => {
 					<li className="nav-item btn1">
 						<Link to="#" className="nav-link" onClick={props._logout}>
 							Logout
+						</Link>
+					</li>
+					<li className="nav-item btn1">
+						<Link to="/trivia" className="nav-link">
+							Play
 						</Link>
 					</li>
 				</ul>
@@ -130,12 +135,6 @@ class App extends Component {
 	}
 
 	render() {
-
-		const socket = socketIOClient(this.state.endpoint)
-		socket.on('change color', (color) => {
-			// setting the color of our button
-			document.body.style.backgroundColor = color
-		  })
 		
 		return (
 			<div class="container">
