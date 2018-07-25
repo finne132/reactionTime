@@ -140,12 +140,6 @@ class App extends Component {
 	}
 
 	render() {
-
-		const socket = socketIOClient(this.state.endpoint)
-		socket.on('change color', (color) => {
-			// setting the color of our button
-			document.body.style.backgroundColor = color
-		  })
 		
 		return (
 			<div class="container">

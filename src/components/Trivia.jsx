@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import socketIOClient from "socket.io-client";
-
+import Chatroom from './Chatroom.js';
 
 class Buttons extends React.Component {
     constructor(props) {
@@ -87,14 +86,7 @@ class Trivia extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
         this.tick = this.tick.bind(this);
-        this.send = this.send.bind(this);
     }
-
-    send = () => {
-        const socket = socketIOClient(this.state.endpoint);
-        socket.emit('message', "you're an asshole!")
-        console.log("asshole button clicked, emitted")
-      }
 
     handleNewGame() {
         this.setState({
@@ -148,7 +140,7 @@ class Trivia extends React.Component {
 
     fetchQuestions() {
         let q = this.state.totalQuestions;
-        fetch('https://opentdb.com/api.php?amount=' + q + '&category=9&difficulty=easy&type=multiple&encode=url3986')
+        fetch('https://opentdb.com/api.php?amount=' + q + '&category=18&difficulty=medium&type=multiple&encode=url3986')
             .then(results => {
                 return results.json();
             }).then(data => {
@@ -206,8 +198,11 @@ class Trivia extends React.Component {
 				console.log("there is not a logged in user, redirecting to the home page")
 				// put the redirect here
 			}
-		})
+        })
+          
         return (
+
+            
             <div class="container">
                 <div className="row justify-content-center">
                     <div className="col-md-12" id = "timercontainer">
@@ -222,13 +217,9 @@ class Trivia extends React.Component {
                     <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
                 </div>
 
-                <div className="row justify-content-center">
-                    <li className="nav-item btn1">
-                        <form action="">
-                            <input id="m" autocomplete="off" /><button onclick={this.send()}>Send</button>
-                        </form>
-                    </li>
-                </div>
+             <div className = "row justify-content-center">
+                 <Chatroom />
+             </div>
             </div>
         
         )
