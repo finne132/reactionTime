@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080
 const socket = require('socket.io');	
 const server = http.createServer(app);
 
-console.log("in server.js, process.env.port is..." + process.env.PORT)
+console.log("in server.js, process.env.port is..." + JSON.stringify(process.env))
 
 // ===== Middleware ====
 app.use(morgan('dev'))
