@@ -93,7 +93,7 @@ class Trivia extends React.Component {
             incorrect: 0,
             q: 0,
             timer: null,
-            counter:15,
+            counter:2,
             user: this.props.user
         });
         this.fetchQuestions();
@@ -121,24 +121,42 @@ class Trivia extends React.Component {
         this.setState({ timer });
     }
 
+    stopTimer() {
+        let timer = clearInterval()
+        this.setState({ timer });
+    }
+
     tick() {
         if (this.state.counter > 0) {
             this.setState({
-                counter: this.state.counter - 1
+                counter: this.state.counter - 1,
             });
         }
         else {
             this.setState({
                 counter: 15,
-                incorrect: this.state.incorrect + 1
+                q: this.state.q+1
             });
+            if (this.state.q <= 10)
+            {
+                this.setState({
+                    incorrect: this.state.incorrect + 1,
+                })
+            }
+            else{
+                this.stopTimer();
+                this.setState({
+                    counter: 0
+                })
+            }
             this.fetchQuestions();
         }
+        
     }
 
     fetchQuestions() {
         let q = this.state.totalQuestions;
-        fetch('https://opentdb.com/api.php?amount=' + q + '&category=18&difficulty=medium&type=multiple&encode=url3986')
+        fetch('https://opentdb.com/api.php?amount=' + q + '&category=9&difficulty=medium&type=multiple&encode=url3986')
             .then(results => {
                 return results.json();
             }).then(data => {
