@@ -6,7 +6,7 @@ const Home = props => {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-1">
-							<p>Welcome to Trivia Game</p>
+							<p>Welcome to ChillTime Trivia</p>
 						</div>
 					<div class="row">
 						<div class="col-md-1">
@@ -31,7 +31,7 @@ const Home = props => {
 		return (
 			<div className="Home">
 			<div className="welcome">
-			<h1>Trivia Game
+			<h1>ChillTime Trivia
 			</h1>
 			</div>
 				{/* <p>You must log in to continue</p> */}

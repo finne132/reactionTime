@@ -80,7 +80,6 @@ class Trivia extends React.Component {
             q: 0,
             timer: null,
             counter: 15,
-            endpoint: "http://localhost:8080"
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
@@ -94,7 +93,8 @@ class Trivia extends React.Component {
             incorrect: 0,
             q: 0,
             timer: null,
-            counter:15
+            counter:15,
+            user: this.props.user
         });
         this.fetchQuestions();
     }
@@ -170,8 +170,7 @@ class Trivia extends React.Component {
         }
         this.setState({ questions: questions });
     }
-    componentWIllMount() {
-        
+    componentDidMount() {
     }
 
     componentWillMount() {
@@ -180,8 +179,8 @@ class Trivia extends React.Component {
             }
             
     render() {
+        if (this.props.user){
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
-          
         return (
             <div class="container">
                 <div className="row justify-content-center">
@@ -203,8 +202,10 @@ class Trivia extends React.Component {
             </div>
         
         )
-        
-
+    }
+    else{
+        return(<div>YOU MUST SIGN IN TO PLAY!</div>)
+        }
     }
 }
 

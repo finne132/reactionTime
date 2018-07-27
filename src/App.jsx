@@ -34,7 +34,7 @@ const DisplayLinks = props => {
 	} else {
 		return (
 			<nav className="navbar">
-				<ul className="nav">
+				<ul className="nav justify-content-center">
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
@@ -124,7 +124,7 @@ componentWillMount(){
 	}
 
 	render() {
-		
+		console.log("rendering the app, this.state.user is "+ JSON.stringify(this.state.user))
 		return (
 			<div class="container">
 			<div className="App">
@@ -136,7 +136,7 @@ componentWillMount(){
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
 				<Route exact path="/login" render={() => <LoginForm _login={this._login}/>}/>
 				<Route exact path="/signup" component={SignupForm} />
-				<Route exact path="/trivia" render={() => <Trivia loggedIn={this.state.logggedIn} />} />
+				<Route exact path="/trivia" render={() => <Trivia user={this.state.user} />} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 			</div>

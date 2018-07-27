@@ -37,10 +37,11 @@ class Chatroom extends React.Component{
         return (
             <div className="container">
                 <div className="row">
+                <div className="col-4"></div>
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
-                                <div className="card-title">Global Chat</div>
+                                <div className="card-title just">Global Chat</div>
                                 <hr/>
                                 <div className="messages">
                                     {this.state.messages.map(message => {
@@ -52,7 +53,7 @@ class Chatroom extends React.Component{
 
                             </div>
                             <div className="card-footer">
-                                <input type="text" placeholder="Username" value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
+                                <input type="text" placeholder="Name in Chat" value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
                                 <br/>
                                 <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({message: ev.target.value})}/>
                                 <br/>
@@ -60,6 +61,7 @@ class Chatroom extends React.Component{
                             </div>
                         </div>
                     </div>
+                    <div className="col-4"></div>
                 </div>
             </div>
         );

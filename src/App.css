@@ -387,6 +387,18 @@ button:hover {
 	color:red;
 }
 
+.card-title.just{
+  color:black;
+  margin-top:15px;
+}
+
+.messages{
+  color:black;
+  text-align:left;
+  margin-left:10px;
+  text-overflow:wrap;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
 
 .chatapp{
