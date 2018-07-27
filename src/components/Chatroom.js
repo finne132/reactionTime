@@ -1,6 +1,8 @@
 import React from "react";
 import io from "socket.io-client";
 
+const PORT = process.env.PORT || 8080
+
 class Chatroom extends React.Component{
     constructor(props){
         super(props);
@@ -11,7 +13,7 @@ class Chatroom extends React.Component{
             messages: []
         };
 
-        this.socket = io('localhost:3000');
+        this.socket = io('localhost:'+PORT);
 
         this.socket.on('RECEIVE_MESSAGE', function(data){
             addMessage(data);
