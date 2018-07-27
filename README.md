@@ -7,7 +7,8 @@ The app will allow users to log in. Users play a single game of of trivia with f
 (Add new powerpoint here)Slides: https://docs.google.com/presentation/d/1L6u_S4z8b-x_6oBC4NJC7Tuah9tnnZ2NvktnGiymGVI/edit?usp=sharing
 
 # Environment Requirements
-NPM must be installed. All other dependencies are installed through npm during set up.
+1) NPM must be installed. All other dependencies are installed through npm during set up.
+2) A Mongo Database must be running. Make sure you run `mongod` or `mongod.exe` before starting the app.
 
 # Set Up
 1) Clone the repo 
