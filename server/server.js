@@ -54,7 +54,9 @@ app.use(function(err, req, res, next) {
 	res.status(500)
 })
 
-
+app.get("*", (req, res) => {  
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 // ==== Starting Server =====
 server.listen(PORT, () => {
