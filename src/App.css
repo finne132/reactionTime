@@ -3,6 +3,10 @@
   color:whitesmoke;
 }
 
+.Header{
+  color:#ff6347;
+  margin-top:20px;
+}
 
 .App-header {
   background-color: #222;
@@ -24,6 +28,10 @@ nav{
 }
 .container-fluid{
   width: 100%;
+}
+
+.pnow{
+  color:red;
 }
 
 .btn1 {

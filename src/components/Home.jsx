@@ -7,15 +7,18 @@ const Home = props => {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-1">
-							<p>Welcome to ChillTime Trivia</p>
+							<h1>Welcome to ChillTime Trivia</h1>
 						</div>
 						<div class="row">
-							{/* <div class="col-md-1">
-							<p>Current User's Login Data:</p>
-							<code>
-							{JSON.stringify(props)}
-							</code>
-						</div> */}
+							<div class="col-md-12">
+							<p>Instructions:</p>
+								<ul>
+									<li>Each round is 10 questions long</li>
+									<li>You have 15 seconds to answer each question</li>
+									<li>You can use the chat box below to talk to everyone else playing</li>
+									<li>Some people might help, but others will lead you astray!</li>
+								</ul>
+							</div>
 						</div>
 
 						<div class="btn-group">
@@ -24,17 +27,17 @@ const Home = props => {
 				</div>
 				<div className="container">
 				<div className="welcome">
-			<h1>ChillTime Trivia
+				<Link to="/trivia" className="nav-link">
+				<h1 className="pnow">Play Now
+			
 			</h1>
+						</Link>
+		
 			</div>
 			<div className="flex">
-				<ul>
-					<li className="col-sm-3 chooseGame">
-						<Link to="/trivia">
-							Play
-						</Link>
-					</li>
-				</ul>
+
+
+
 				</div>
 				</div>
 			</div>

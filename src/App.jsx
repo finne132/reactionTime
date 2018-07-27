@@ -12,7 +12,7 @@ const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<nav className="navbar">
-				<ul className="nav">
+				<ul className="nav justify-content-center">
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
@@ -28,6 +28,8 @@ const DisplayLinks = props => {
 							Play
 						</Link>
 					</li>
+					<li>
+						</li>
 				</ul>
 			</nav>
 		)
