@@ -96,7 +96,7 @@ class Chatroom extends React.Component {
 
         return (
             <div className="chatroom">
-                <h3>Trivia Chat</h3>
+                {/* <h3>Trivia Chat</h3> */}
                 <ul className="chats" ref="chats">
                     {
                         chats.map((chat) => 

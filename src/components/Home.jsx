@@ -7,7 +7,7 @@ const Home = props => {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-1">
-							<p>Welcome to Trivia Game</p>
+							<p>Welcome to ChillTime Trivia</p>
 						</div>
 						<div class="row">
 							{/* <div class="col-md-1">
@@ -27,13 +27,15 @@ const Home = props => {
 			<h1>ChillTime Trivia
 			</h1>
 			</div>
+			<div className="flex">
 				<ul>
-					<li className="col-sm-3 chooseGame btn1">
+					<li className="col-sm-3 chooseGame">
 						<Link to="/trivia">
 							Play
 						</Link>
 					</li>
 				</ul>
+				</div>
 				</div>
 			</div>
 		)

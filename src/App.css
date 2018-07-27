@@ -304,7 +304,8 @@ button:hover {
 	background: #ffaf00;
 		}
 .question{
-	font-size: 30px;
+  font-size: 30px;
+  margin: 5px;
 }
 
 #timercontainer{
@@ -362,12 +363,12 @@ button:hover {
 /* home page */
 .chooseGame{
 margin: 5px;
-display: flex;
-align-items: center;
-justify-content: center;
-list-style-type: none;	
-width: 50%;
-
+list-style-type: none;
+}
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .chat{
@@ -424,21 +425,21 @@ width: 50%;
 		width: 100vw;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+    justify-content: center;
 }
 
 .chatroom {
-  width: 360px;
-  height: 600px;
-  background-color: rgba(0,0,0, .7);
+  width: auto;
+  height: 100px;
+  /* background-color: rgba(0,0,0, .7); */
   border-radius: 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
+  padding-bottom: 50px;
 }
 
 .chatroom h3 {
   background-color:#ffaf00;
-  color: #FFF;
   margin: 0;
   height: 40px;
   font-size: 20px;
@@ -451,7 +452,7 @@ width: 50%;
   box-sizing: border-box;
   padding: 0 20px;
   margin: 10px 0 0;
-  height: 510px;
+  height: 100px;
   overflow-y: scroll;
 }
 
@@ -466,6 +467,7 @@ width: 50%;
   clear: both;
   margin: 10px 0;
   max-width: 200px;
+  color: slategray;
 }
 
 .chatroom .chats .chat img {
@@ -521,9 +523,12 @@ width: 50%;
   border-bottom-right-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Baloo', cursive;
+  padding: 1em;
 }
 
 .chatroom .input input[type="submit"]:hover {
   background: #ffaf00;
   color: #FFF;
+  font-family: 'Baloo', cursive
 }
