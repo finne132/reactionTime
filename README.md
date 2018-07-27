@@ -1,4 +1,5 @@
 # ChillTime Triva
+This project is deployed live at https://chilltimetrivia.herokuapp.com/
 
 # Project Overview
 The app will allow users to log in. Users play a single game of of trivia with friends or random users, trivia games will be interactive including chat. Question will only be in mulitple choice format. No schedules no waiting. Play when you want.
