@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'
 import Chatroom from './Chatroom.js';
 
 class Buttons extends React.Component {
@@ -81,7 +80,6 @@ class Trivia extends React.Component {
             q: 0,
             timer: null,
             counter: 15,
-            endpoint: "http://localhost:8080"
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleNewGame = this.handleNewGame.bind(this);
@@ -95,7 +93,8 @@ class Trivia extends React.Component {
             incorrect: 0,
             q: 0,
             timer: null,
-            counter: 15
+            counter:15,
+            user: this.props.user
         });
         this.fetchQuestions();
     }
@@ -170,38 +169,18 @@ class Trivia extends React.Component {
         }
         this.setState({ questions: questions });
     }
-
+    componentDidMount() {
+    }
 
     componentWillMount() {
-        axios.get('/auth/user').then(response => {
-            console.log(response.data)
-            if (!!response.data.user) {
-                console.log('THERE IS A USER')
                 this.fetchQuestions();
                 this.startTimer();
-            } else {
-                console.log("there is not a logged in user, redirecting to the home page")
-                // put the redirect here
             }
-        })
-
-    }
+            
     render() {
+        if (this.props.user){
         let questions = this.state.questions.length <= 0 ? false : <Question questions={this.state.questions} q={this.state.q} totalQuestions={this.state.totalQuestions} handleClick={this.handleClick} handleNewGame={this.handleNewGame} />;
-        axios.get('/auth/user').then(response => {
-            console.log(response.data)
-            if (!!response.data.user) {
-                console.log('THERE IS A USER')
-
-            } else {
-                console.log("there is not a logged in user, redirecting to the home page")
-                // put the redirect here
-            }
-        })
-
         return (
-
-
             <div class="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8" id="timercontainer">
@@ -210,18 +189,21 @@ class Trivia extends React.Component {
                         <div className="question">
                             <p className="text-center"> {questions} </p>
                         </div>
+            </div>  
+            <div className="row justify-content-center">
+                    <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
+                </div>
+
+             <div className = "row justify-content-center">
+                 <Chatroom />
+             </div>
             </div>
-                    <div className="row justify-content-center">
-                        <Totals correct={this.state.correct} incorrect={this.state.incorrect} />
-                    </div>
-                    <div>
-                            <Chatroom />
-                        </div>
-                        </div>
-
-                )
         
-
+        )
+    }
+    else{
+        return(<div>YOU MUST SIGN IN TO PLAY!</div>)
+        }
     }
 }
 

@@ -1,114 +1,63 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '../App.css';
+import React from "react";
+import io from "socket.io-client";
 
-import Message from './Message.js';
-import socketIOClient from "socket.io-client";
-
-class Chatroom extends React.Component {
-    constructor(props) {
+class Chatroom extends React.Component{
+    constructor(props){
         super(props);
 
         this.state = {
-            endpoint: "http://localhost:8080",
-            chats: [{
-                username: "Kevin Hsu",
-                content: <p>Hello World!</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "Alice Chen",
-                content: <p>Love it! :heart:</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "Kevin Hsu",
-                content: <p>Check out my Github at https://github.com/WigoHunter</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "KevHs",
-                content: <p>Lorem ipsum dolor sit amet, nibh ipsum. Cum class sem inceptos incidunt sed sed. Tempus wisi enim id, arcu sed lectus aliquam, nulla vitae est bibendum molestie elit risus.</p>,
-                img: "http://i.imgur.com/ARbQZix.jpg",
-            }, {
-                username: "Kevin Hsu",
-                content: <p>So</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "Kevin Hsu",
-                content: <p>Chilltime is going to be an app for you to view videos with friends</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "Kevin Hsu",
-                content: <p>You can sign-up now to try out our private beta!</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }, {
-                username: "Alice Chen",
-                content: <p>Definitely! Sounds great!</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }]
+            username: '',
+            message: '',
+            messages: []
         };
 
-        this.submitMessage = this.submitMessage.bind(this);
-    }
+        this.socket = io('localhost:3000');
 
-    componentDidMount() {
-        this.scrollToBot();
-    }
-
-    componentDidUpdate() {
-        this.scrollToBot();
-    }
-
-    scrollToBot() {
-        ReactDOM.findDOMNode(this.refs.chats).scrollTop = ReactDOM.findDOMNode(this.refs.chats).scrollHeight;
-    }
-
-    submitMessage(e) {
-        e.preventDefault();
-
-        const socket = socketIOClient(this.state.endpoint)
-		
-		// this emits an event to the socket (your server) with an argument of 'red'
-		// you can make the argument any color you would like, or any kind of data you want to send.
-		
-        socket.emit('message', <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>) 
-        console.log("just emitted socket data!")
-
-        this.setState({
-            chats: this.state.chats.concat([{
-                username: "Kevin Hsu",
-                content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
-            }])
-        }, () => {
-            ReactDOM.findDOMNode(this.refs.msg).value = "";
+        this.socket.on('RECEIVE_MESSAGE', function(data){
+            addMessage(data);
         });
+
+        const addMessage = data => {
+            console.log(data);
+            this.setState({messages: [...this.state.messages, data]});
+            console.log(this.state.messages);
+        };
+
+        this.sendMessage = ev => {
+            ev.preventDefault();
+            this.socket.emit('SEND_MESSAGE', {
+                author: this.state.username,
+                message: this.state.message
+            })
+            this.setState({message: ''});
+
+        }
     }
-
-    render() {
-        const username = "Joe Finny";
-        const { chats } = this.state;
-
-                
-        const socket = socketIOClient(this.state.endpoint)
-		socket.on('message', () => {
-			// setting the color of our button
-			console.log("GOT A MESSAGE!!!!")
-          })
-
+    render(){
         return (
-            <div className="chatroom">
-                {/* <h3>Trivia Chat</h3> */}
-                <ul className="chats" ref="chats">
-                    {
-                        chats.map((chat) => 
-                            <Message chat={chat} user={username} />
-                        )
-                    }
-                </ul>
-                <form className="input" onSubmit={(e) => this.submitMessage(e)}>
-                    <input type="text" ref="msg" />
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
+            <div className="container">
+                <div className="row">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="messages">
+                                    {this.state.messages.map(message => {
+                                        return (
+                                            <div>{message.author}: {message.message}</div>
+                                        )
+                                    })}
+                                </div>
+
+                            </div>
+                            <div className="card-footer">
+                                <input type="text" placeholder="Name in Chat" value={this.state.username} onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
+                                <br/>
+                                <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({message: ev.target.value})}/>
+                                <br/>
+                                <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         );
     }
 }

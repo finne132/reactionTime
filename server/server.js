@@ -10,9 +10,8 @@ const passport = require('./passport')
 const app = express()
 const http = require('http')
 const PORT = process.env.PORT || 8080
-const socketIO = require('socket.io');	
+const socket = require('socket.io');	
 const server = http.createServer(app);
-const io = socketIO(server)
 
 // ===== Middleware ====
 app.use(morgan('dev'))
@@ -48,13 +47,6 @@ if (process.env.NODE_ENV === 'production') {
 /* Express app ROUTING */
 app.use('/auth', require('./auth'))
 
-io.on('connection', socket => {
-	console.log('A client is connected, socket.io is activated"')
-	socket.on('No clients are connected, socket.io turning off', () => {
-	  console.log('user disconnected')
-	})
-  })
-
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
 	console.log('====== ERROR =======')
@@ -62,7 +54,19 @@ app.use(function(err, req, res, next) {
 	res.status(500)
 })
 
+
+
 // ==== Starting Server =====
 server.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
+
+io = socket(server);
+
+io.on('connection', (socket) => {
+    console.log(socket.id);
+
+    socket.on('SEND_MESSAGE', function(data){
+        io.emit('RECEIVE_MESSAGE', data);
+    })
+});

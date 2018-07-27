@@ -300,7 +300,7 @@ button{
 	box-shadow: rgba(0,0,0,1) 0 1px 0;
 	text-shadow: rgba(0,0,0,.4) 0 1px 0;
 	color: white;
-	font-size: 25px;
+	font-size: 20px;
 	text-decoration: none;
 	vertical-align: middle;
 	margin: .5em;
@@ -311,7 +311,7 @@ button:hover {
 	background: #ffaf00;
 		}
 .question{
-  font-size: 30px;
+  font-size: 25px;
   margin: 10px;
 }
 
@@ -359,12 +359,12 @@ button:hover {
 }
 
 .correct{
-	font-size:40pt;
+	font-size:30pt;
 	color:lime;
 }
 
 .incorrect{
-	font-size:40pt;
+	font-size:30pt;
 	color:red;
 }
 /* home page */
@@ -379,7 +379,7 @@ list-style-type: none;
 }
 
 .chat{
-	width: 1000%;
+	width: 100%;
 }
 #input{
 	width: 50%;
@@ -425,6 +425,18 @@ list-style-type: none;
 }
 
 
+.card-title.just{
+  color:black;
+  margin-top:15px;
+}
+
+.messages{
+  color:black;
+  text-align:left;
+  margin-left:10px;
+  text-overflow:wrap;
+  
+}
 
 .chatapp{
 		background-color: #ffaf00;
@@ -436,15 +448,15 @@ list-style-type: none;
     margin-right: -10px;
 }
 
-.chatroom {
+.card {
   width: auto;
-  height: 100px;
-  /* background-color: rgba(0,0,0, .7); */
+  height: auto;
   border-radius: 5px;
- 
   box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
-  padding-bottom: 50px;
+  margin: auto;
 }
+
+
 
 .chatroom h3 {
   background-color:#ffaf00;
@@ -456,12 +468,13 @@ list-style-type: none;
   justify-content: center;
 }
 
-.chatroom .chats {
+.messages {
   box-sizing: border-box;
   padding: 0 20px;
   margin: 10px 0 0;
   height: 100px;
   overflow-y: scroll;
+  color: slategrey;
 }
 
 .chatroom .chats .chat {
@@ -506,8 +519,8 @@ list-style-type: none;
   align-items: center;
 }
 
-.chatroom .input input[type="text"] {
-  background: rgba(255, 255, 255, 0.5);
+.btn {
+  background-color: #ffaf00;
   outline: 0;
   border: 2px solid #ffaf00;
   padding: 0 5px;
@@ -519,9 +532,6 @@ list-style-type: none;
   box-sizing: border-box;
   font-size: 14px;
   font-family: 'Baloo', cursive;
-  padding: .5em;
-  vertical-align: middle;
-	margin: .5em;
  
 }
 
@@ -548,6 +558,3 @@ list-style-type: none;
   font-family: 'Baloo', cursive
 }
 
-#root{
-  width: 100%
-}
