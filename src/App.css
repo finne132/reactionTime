@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-	color:whitesmoke;
+  color:whitesmoke;
 }
+
 
 .App-header {
   background-color: #222;
@@ -17,6 +18,12 @@ nav{
 	width: 100%;
 	height: auto;
 	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+}
+.navbar{
+  width: 100%;
+}
+.container-fluid{
+  width: 100%;
 }
 
 .btn1 {
@@ -305,7 +312,7 @@ button:hover {
 		}
 .question{
   font-size: 30px;
-  margin: 5px;
+  margin: 10px;
 }
 
 #timercontainer{
@@ -372,7 +379,7 @@ list-style-type: none;
 }
 
 .chat{
-	width: 80%;
+	width: 1000%;
 }
 #input{
 	width: 50%;
@@ -426,6 +433,7 @@ list-style-type: none;
 		display: flex;
 		align-items: center;
     justify-content: center;
+    margin-right: -10px;
 }
 
 .chatroom {
@@ -433,7 +441,7 @@ list-style-type: none;
   height: 100px;
   /* background-color: rgba(0,0,0, .7); */
   border-radius: 5px;
-  /* overflow: hidden; */
+ 
   box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
   padding-bottom: 50px;
 }
@@ -510,6 +518,11 @@ list-style-type: none;
   width: 270px;
   box-sizing: border-box;
   font-size: 14px;
+  font-family: 'Baloo', cursive;
+  padding: .5em;
+  vertical-align: middle;
+	margin: .5em;
+ 
 }
 
 .chatroom .input input[type="submit"] {
@@ -524,11 +537,17 @@ list-style-type: none;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Baloo', cursive;
-  padding: 1em;
+  padding: .5em;
+  vertical-align: middle;
+	margin: .5em;
 }
 
 .chatroom .input input[type="submit"]:hover {
   background: #ffaf00;
   color: #FFF;
   font-family: 'Baloo', cursive
+}
+
+#root{
+  width: 100%
 }

@@ -13,7 +13,7 @@ const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
 			<nav className="navbar">
-				<ul className="nav justify-content-center">
+				<ul className="nav">
 					<li className="nav-item btn1">
 						<Link to="/" className="nav-link">
 							Home
@@ -137,7 +137,6 @@ class App extends Component {
 	render() {
 		
 		return (
-			<div class="container">
 			<div className="App">
 			{/* LINKS to our different 'pages' */}
 			<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -149,7 +148,6 @@ class App extends Component {
 				<Route exact path="/signup" component={SignupForm} />
 				<Route exact path="/trivia" render={() => <Trivia loggedIn={this.state.logggedIn} />} />
 				{/* <LoginForm _login={this._login} /> */}
-			</div>
 			</div>
 		)
 	}
