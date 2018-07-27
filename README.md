@@ -7,8 +7,6 @@ This app allows users to log in and play a challenging timed trivia game with th
 # Presentation and Demo
 https://docs.google.com/presentation/d/1L6u_S4z8b-x_6oBC4NJC7Tuah9tnnZ2NvktnGiymGVI/edit?usp=sharing
 
-![Alt Text](https://media.giphy.com/media/RIkwzsOwvtbEgF2smH/giphy.gif)
-
 # Environment Requirements
 1) NPM must be installed. All other dependencies are installed through npm during set up.
 2) A Mongo Database must be running. Make sure you run `mongod` or `mongod.exe` before starting the app.
