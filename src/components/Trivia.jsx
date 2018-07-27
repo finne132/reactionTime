@@ -93,7 +93,7 @@ class Trivia extends React.Component {
             incorrect: 0,
             q: 0,
             timer: null,
-            counter:2,
+            counter:15,
             user: this.props.user
         });
         this.fetchQuestions();
