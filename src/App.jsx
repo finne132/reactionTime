@@ -7,7 +7,6 @@ import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
 import Trivia from './components/Trivia'
-import socketIOClient from 'socket.io-client'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -68,38 +67,28 @@ class App extends Component {
 		this._login = this._login.bind(this)
 	}
 
-
-	// method for emitting socket.io events
-
-	send = () => {
-		const socket = socketIOClient(this.state.endpoint)
-		
-		// this emits an event to the socket (your server) with an argument of 'red'
-		// you can make the argument any color you would like, or any kind of data you want to send.
-		
-		socket.emit('change color', 'red') 
-    // socket.emit('change color', 'red', 'yellow') | you can have multiple arguments
-	  }
-
+componentWillMount(){
+	axios.get('/auth/user').then(response => {
+		console.log(response.data)
+		if (!!response.data.user) {
+			console.log('THERE IS A USER')
+			this.setState({
+				loggedIn: true,
+				user: response.data.user
+			})
+		} else {
+			console.log("there is not a logged in user, redirecting to the home page")
+			// put the redirect here
+			this.setState({
+				loggedIn: false,
+				user: null
+			})
+		}
+	})
+}
 
 	componentDidMount() {
-		axios.get('/auth/user').then(response => {
-			console.log(response.data)
-			if (!!response.data.user) {
-				console.log('THERE IS A USER')
-				this.setState({
-					loggedIn: true,
-					user: response.data.user
-				})
-			} else {
-				console.log("there is not a logged in user, redirecting to the home page")
-				// put the redirect here
-				this.setState({
-					loggedIn: false,
-					user: null
-				})
-			}
-		})
+		
 	}
 
 	_logout(event) {
