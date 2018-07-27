@@ -1,8 +1,8 @@
 import React from "react";
 import io from "socket.io-client";
 
-const PORT = process.env.PORT || 8080
-console.log("In the production environment, the deployed chatroom is using port " + process.env.port)
+const PORT = process.env.port || 8080
+console.log("process.env is... " + JSON.stringify(process.env))
 
 class Chatroom extends React.Component{
     constructor(props){
