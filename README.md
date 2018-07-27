@@ -5,7 +5,7 @@ This project is deployed live at https://chilltimetrivia.herokuapp.com/
 This app allows users to log in and play a challenging timed trivia game with their friends. There is a global chat function available while playing trivia so you can chat with friends, compare your scores, ask questions, or try to help or hinder other players! 
 
 # Presentation and Demo
-(Add new powerpoint here)Slides: https://docs.google.com/presentation/d/1L6u_S4z8b-x_6oBC4NJC7Tuah9tnnZ2NvktnGiymGVI/edit?usp=sharing
+https://docs.google.com/presentation/d/1L6u_S4z8b-x_6oBC4NJC7Tuah9tnnZ2NvktnGiymGVI/edit?usp=sharing
 
 # Environment Requirements
 1) NPM must be installed. All other dependencies are installed through npm during set up.
